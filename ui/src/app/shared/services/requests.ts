@@ -47,7 +47,7 @@ export default {
             client_secret: "gE9avSRpz3GZsSWqxPcUWxI6wqBNPyaT"
         })
         .responseType('blob')
-        .then((res: string) => {
+        .then(res => {
             console.log(res);
         });
     },
