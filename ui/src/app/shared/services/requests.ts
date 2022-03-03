@@ -41,11 +41,14 @@ export default {
     token(){
         var res = superagent.post(keycloakUrl('/realms/argo/protocol/openid-connect/token'))
         .set('Content-Type', 'application/x-www-form-urlencoded')
-        .send({
-            grant_type: "client_credentials",
-            client_id: "argoworkflow",
-            client_secret: "gE9avSRpz3GZsSWqxPcUWxI6wqBNPyaT"
-        });
+        .send("grant_type=client_credentials")
+        .send("client_id=argoworkflow")
+        .send("client_secret=gE9avSRpz3GZsSWqxPcUWxI6wqBNPyaT");
+        // .send({
+        //     grant_type: "client_credentials",
+        //     client_id: "argoworkflow",
+        //     client_secret: "gE9avSRpz3GZsSWqxPcUWxI6wqBNPyaT"
+        // });
         console.log(res);
     },
     logout() {
