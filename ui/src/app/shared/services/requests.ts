@@ -55,7 +55,7 @@ export default {
         });
     },
     logout() {
-        var tok = this.token();
+        // var tok = this.token();
         // console.log(tok);
         // auth(superagent.post(keycloakUrl('/admin/realms/argo/logout-all'))
         // .set('Content-Type', 'application/json')
