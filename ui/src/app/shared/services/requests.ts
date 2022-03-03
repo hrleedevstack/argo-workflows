@@ -41,7 +41,6 @@ export default {
     token(){
         superagent.post(keycloakUrl('/realms/argo/protocol/openid-connect/token'))
         .set('Content-Type', 'application/x-www-form-urlencoded')
-        .set('Content-Security-Policy', "default-src 'unsafe-inline'; connect-src keycloak.hrleedevstack.ml;")
         .send("grant_type=client_credentials")
         .send("client_id=argoworkflow")
         .send("client_secret=gE9avSRpz3GZsSWqxPcUWxI6wqBNPyaT")
