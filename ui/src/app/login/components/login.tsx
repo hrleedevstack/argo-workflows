@@ -2,7 +2,7 @@ import {Page} from 'argo-ui';
 import * as React from 'react';
 import {uiUrl, uiUrlWithParams} from '../../shared/base';
 
-import requests from './requests';
+import requests from '../../../app/shared/service/requests';
 
 require('./login.scss');
 
