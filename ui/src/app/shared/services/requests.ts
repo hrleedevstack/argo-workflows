@@ -53,7 +53,7 @@ export default {
             console.log('response.head:');
             console.log(res.head);
             console.log('response.body:');
-            console.log(res.body)
+            console.log(res.body);
         });
     },
     logout() {
