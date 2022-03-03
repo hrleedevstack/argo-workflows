@@ -2,9 +2,16 @@ import {Page} from 'argo-ui';
 import * as React from 'react';
 import {uiUrl, uiUrlWithParams} from '../../shared/base';
 
+import requests from './requests';
+
 require('./login.scss');
 
+const isKeycloak = true;
+
 const logout = () => {
+    if (isKeycloak){
+        requests.logout();
+    }
     document.cookie = 'authorization=;Max-Age=0';
     document.location.reload(true);
 };

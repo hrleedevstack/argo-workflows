@@ -1,7 +1,7 @@
 import {Observable, Observer} from 'rxjs';
 import * as _superagent from 'superagent';
 import {SuperAgentRequest} from 'superagent';
-import {apiUrl, uiUrlWithParams} from '../base';
+import {apiUrl,keycloakUrl, uiUrlWithParams} from '../base';
 
 const superagentPromise = require('superagent-promise');
 
@@ -37,6 +37,22 @@ export default {
 
     delete(url: string) {
         return auth(superagent.del(apiUrl(url)));
+    },
+    token(){
+        return auth(superagent.post(keycloakUrl('/realms/argo/protocol/openid-connect/token'))
+        .set('Content-Type', 'application/x-www-form-urlencoded')
+        .send({
+            grant_type: "client_credentials",
+            client_id: "argoworkflow",
+            client_secret: "gE9avSRpz3GZsSWqxPcUWxI6wqBNPyaT"
+        }));
+    },
+    logout() {
+        var tok = this.token();
+        console.log(tok);
+        // auth(superagent.post(keycloakUrl('/admin/realms/argo/logout-all'))
+        // .set('Content-Type', 'application/json')
+        // .set('Authorization', `bearer ${tok}`));
     },
 
     loadEventSource(url: string): Observable<string> {

@@ -17,3 +17,8 @@ export function uiUrlWithParams(uiPath: string, params: string[]): string {
 export function apiUrl(apiPath: string): string {
     return `${baseUrl()}${apiPath}`;
 }
+
+export function keycloakUrl(apiPath: string): string {
+    const base = 'http://keycloak.hrleedevstack.ml:31879/auth';
+    return `${base}${apiPath}`;
+}
