@@ -50,8 +50,6 @@ export default {
         //     client_secret: "gE9avSRpz3GZsSWqxPcUWxI6wqBNPyaT"
         // });
         .then((res) =>{
-            console.log('response.head:');
-            console.log(res.head);
             console.log('response.body:');
             console.log(res.body);
         });
