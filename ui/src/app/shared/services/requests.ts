@@ -39,13 +39,13 @@ export default {
         return auth(superagent.del(apiUrl(url)));
     },
     token(){
-        return auth(superagent.post(keycloakUrl('/realms/argo/protocol/openid-connect/token'))
+        return superagent.post(keycloakUrl('/realms/argo/protocol/openid-connect/token'))
         .set('Content-Type', 'application/x-www-form-urlencoded')
         .send({
             grant_type: "client_credentials",
             client_id: "argoworkflow",
             client_secret: "gE9avSRpz3GZsSWqxPcUWxI6wqBNPyaT"
-        }));
+        });
     },
     logout() {
         var tok = this.token();
