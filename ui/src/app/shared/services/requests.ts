@@ -1,7 +1,6 @@
 import {Observable, Observer} from 'rxjs';
 import * as _superagent from 'superagent';
 import {SuperAgentRequest} from 'superagent';
-import {requests} from 'superagent';
 import {apiUrl,keycloakUrl, uiUrlWithParams} from '../base';
 
 const superagentPromise = require('superagent-promise');
@@ -40,7 +39,7 @@ export default {
         return auth(superagent.del(apiUrl(url)));
     },
     token(){
-        var res = requests.post(keycloakUrl('/realms/argo/protocol/openid-connect/token'))
+        var res = superagent.post(keycloakUrl('/realms/argo/protocol/openid-connect/token'))
         .set('Content-Type', 'application/x-www-form-urlencoded')
         .send("grant_type=client_credentials")
         .send("client_id=argoworkflow")
@@ -50,7 +49,10 @@ export default {
         //     client_id: "argoworkflow",
         //     client_secret: "gE9avSRpz3GZsSWqxPcUWxI6wqBNPyaT"
         // });
-        console.log(res);
+        console.log('response.head:');
+        console.log(res.head);
+        console.log('response.body:');
+        console.log(res.body)
     },
     logout() {
         var tok = this.token();
