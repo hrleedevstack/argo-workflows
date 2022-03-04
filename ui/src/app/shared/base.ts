@@ -19,6 +19,6 @@ export function apiUrl(apiPath: string): string {
 }
 
 export function keycloakUrl(apiPath: string): string {
-    const base = 'http://keycloak.hrleedevstack.ml:31879/auth';
+    const base = 'https://keycloak.hrleedevstack.ml:32364/auth';
     return `${base}${apiPath}`;
 }
