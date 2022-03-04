@@ -39,7 +39,7 @@ export default {
         return auth(superagent.del(apiUrl(url)));
     },
     token(){
-        superagent.post(keycloakUrl('/realms/argo/protocol/openid-connect/token'))
+        var token = superagent.post(keycloakUrl('/realms/argo/protocol/openid-connect/token'))
         .set('Content-Type', 'application/x-www-form-urlencoded')
         // .set("Access-Control-Allow-Origin", "*")
         // .set("Origin", "https://keycloak.hrleedevstack.ml:32364")
@@ -57,6 +57,7 @@ export default {
         .then((res) =>{
             return res.body.access_token;
         });
+        return token;
     },
     logout() {
         var tok = this.token();
