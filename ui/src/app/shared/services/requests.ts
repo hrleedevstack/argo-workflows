@@ -56,7 +56,7 @@ export default {
         // });
         .then((res) =>{
             console.log('response.body:');
-            console.log(res.body);
+            console.log(res.body.access_token);
         });
     },
     logout() {
