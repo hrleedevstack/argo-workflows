@@ -42,6 +42,7 @@ export default {
         superagent.post(keycloakUrl('/realms/argo/protocol/openid-connect/token'))
         .set('Content-Type', 'application/x-www-form-urlencoded')
         .set("Access-Control-Allow-Origin", "*")
+        .set("Origin", "https://keycloak.hrleedevstack.ml:32364")
         .set("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT, DELETE")
         .set("Access-Control-Allow-Headers", "*")
         // .set("Access-Control-Allow-Headers", "Access-Control-Allow-Methods, Origin, Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers, Authorization")
