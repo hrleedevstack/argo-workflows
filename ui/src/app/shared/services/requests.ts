@@ -44,7 +44,7 @@ export default {
         .set("Access-Control-Allow-Origin", "*")
         .set("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT, DELETE")
         .set("Access-Control-Allow-Headers", "*")
-        .set("Access-Control-Allow-Headers", "Access-Control-Allow-Methods, Origin, Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers, Authorization")
+        // .set("Access-Control-Allow-Headers", "Access-Control-Allow-Methods, Origin, Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers, Authorization")
         .send("grant_type=client_credentials")
         .send("client_id=argoworkflow")
         .send("client_secret=gE9avSRpz3GZsSWqxPcUWxI6wqBNPyaT")
