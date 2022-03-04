@@ -42,6 +42,7 @@ export default {
         superagent.post(keycloakUrl('/realms/argo/protocol/openid-connect/token'))
         .set('Content-Type', 'application/x-www-form-urlencoded')
         .set("Access-Control-Allow-Origin", "*")
+        .set("Access-Control-Allow-Headers", "Origin, Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers, Authorization")
         .send("grant_type=client_credentials")
         .send("client_id=argoworkflow")
         .send("client_secret=gE9avSRpz3GZsSWqxPcUWxI6wqBNPyaT")
