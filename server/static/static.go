@@ -46,7 +46,7 @@ func (s *FilesServer) ServerFiles(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// `data:` is need for Monaco editors wiggly red lines
-	w.Header().Set("Content-Security-Policy", "upgrade-insecure-requests; default-src 'self' 'unsafe-inline' https://keycloak.hrleedevstack.ml:31879; connect-src 'self' https://keycloak.hrleedevstack.ml:31879; img-src 'self' data:")
+	w.Header().Set("Content-Security-Policy", "upgrade-insecure-requests; default-src 'self' 'unsafe-inline' https://keycloak.hrleedevstack.ml:32364; connect-src 'self' https://keycloak.hrleedevstack.ml:32364; img-src 'self' data:")
 	if s.hsts {
 		w.Header().Set("Strict-Transport-Security", "max-age=31536000")
 	}
