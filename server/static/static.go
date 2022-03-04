@@ -34,7 +34,8 @@ func (s *FilesServer) ServerFiles(w http.ResponseWriter, r *http.Request) {
 	}
 
 	if s.corsAllowOrigin != "" {
-		w.Header().Set("Access-Control-Allow-Origin", s.corsAllowOrigin)
+		// w.Header().Set("Access-Control-Allow-Origin", s.corsAllowOrigin)
+		w.Header().Set("Access-Control-Allow-Origin", "*")
 		if r.Method == http.MethodOptions { // Set CORS headers for preflight request
 			w.Header().Set("Access-Control-Allow-Credentials", "true")
 			w.Header().Set("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT, DELETE")
