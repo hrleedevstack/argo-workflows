@@ -43,7 +43,7 @@ export default {
         .set('Content-Type', 'application/x-www-form-urlencoded')
         .set("Access-Control-Allow-Origin", "*")
         .set("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT, DELETE")
-        .set("*")
+        .set("Access-Control-Allow-Headers", "*")
         // .set("Access-Control-Allow-Headers", "Origin, Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers, Authorization")
         .send("grant_type=client_credentials")
         .send("client_id=argoworkflow")
