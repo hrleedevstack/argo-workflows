@@ -35,12 +35,13 @@ func (s *FilesServer) ServerFiles(w http.ResponseWriter, r *http.Request) {
 
 	if s.corsAllowOrigin != "" {
 		// w.Header().Set("Access-Control-Allow-Origin", s.corsAllowOrigin)
-		w.Header().Set("Access-Control-Allow-Origin", "https://keycloak.hrleedevstack.ml:32364")
-		// w.Header().Set("Access-Control-Allow-Origin", "*")
+		// w.Header().Set("Access-Control-Allow-Origin", "https://keycloak.hrleedevstack.ml:32364")
+		w.Header().Set("Access-Control-Allow-Origin", "*")
 		if r.Method == http.MethodOptions { // Set CORS headers for preflight request
 			w.Header().Set("Access-Control-Allow-Credentials", "true")
 			w.Header().Set("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT, DELETE")
-			w.Header().Set("Access-Control-Allow-Headers", "Content-Type, Authorization")
+			// w.Header().Set("Access-Control-Allow-Headers", "Content-Type, Authorization")
+			w.Header().Set("Access-Control-Allow-Headers", "Origin, Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers, Authorization")
 			w.WriteHeader(http.StatusNoContent)
 			return
 		}
