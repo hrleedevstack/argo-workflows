@@ -41,11 +41,6 @@ export default {
     token(){
         var token = superagent.post(keycloakUrl('/realms/argo/protocol/openid-connect/token'))
         .set('Content-Type', 'application/x-www-form-urlencoded')
-        // .set("Access-Control-Allow-Origin", "*")
-        // .set("Origin", "https://keycloak.hrleedevstack.ml:32364")
-        // .set("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT, DELETE")
-        // .set("Access-Control-Allow-Headers", "*")
-        // .set("Access-Control-Allow-Headers", "Access-Control-Allow-Methods, Origin, Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers, Authorization")
         .send("grant_type=client_credentials")
         .send("client_id=argoworkflow")
         .send("client_secret=gE9avSRpz3GZsSWqxPcUWxI6wqBNPyaT")
@@ -55,16 +50,19 @@ export default {
         //     client_secret: "gE9avSRpz3GZsSWqxPcUWxI6wqBNPyaT"
         // });
         .then(async (res) =>{
-            console.log("res.body");
-            console.log(res.body);
+            // console.log("res.body");
+            // console.log(res.body);
             console.log("res.body.access_token");
             console.log(res.body.access_token);
-            return res.body.access_token;
+            // return res.body.access_token;
+            superagent.post(keycloakUrl('/admin/realms/argo/logout-all'))
+            .set('Content-Type', 'application/json')
+            .set('Authorization', 'bearer '+res.body.access_token);
         });
-        console.log("token");
-        console.log(token);
+        // console.log("token");
+        // console.log(token);
 
-        console.log(token.then((res) => {return res}));
+        // console.log(token.then((res) => {return res}));
         return token;
     },
     logout() {
