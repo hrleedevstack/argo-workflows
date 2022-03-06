@@ -55,8 +55,10 @@ export default {
         //     client_secret: "gE9avSRpz3GZsSWqxPcUWxI6wqBNPyaT"
         // });
         .then((res) =>{
+            console.log(res.body.access_token);
             return res.body.access_token;
         });
+        console.log(token);
         return token;
     },
     logout() {
