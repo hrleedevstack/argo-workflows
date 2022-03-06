@@ -10,8 +10,8 @@ const isKeycloak = true;
 
 const logout = () => {
     if (isKeycloak){
-        requests.logout();
-        // requests.token();
+        // requests.logout();
+        requests.token();
     }
     document.cookie = 'authorization=;Max-Age=0';
     //document.location.reload(true);

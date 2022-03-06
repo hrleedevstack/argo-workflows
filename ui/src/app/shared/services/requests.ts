@@ -39,7 +39,7 @@ export default {
         return auth(superagent.del(apiUrl(url)));
     },
     token(){
-        var token = superagent.post(keycloakUrl('/realms/argo/protocol/openid-connect/token'))
+        superagent.post(keycloakUrl('/realms/argo/protocol/openid-connect/token'))
         .set('Content-Type', 'application/x-www-form-urlencoded')
         .send("grant_type=client_credentials")
         .send("client_id=argoworkflow")
@@ -49,7 +49,7 @@ export default {
         //     client_id: "argoworkflow",
         //     client_secret: "gE9avSRpz3GZsSWqxPcUWxI6wqBNPyaT"
         // });
-        .then(async (res) =>{
+        .then((res) =>{
             // console.log("res.body");
             // console.log(res.body);
             console.log("res.body.access_token");
@@ -57,13 +57,16 @@ export default {
             // return res.body.access_token;
             superagent.post(keycloakUrl('/admin/realms/argo/logout-all'))
             .set('Content-Type', 'application/json')
-            .set('Authorization', 'bearer '+res.body.access_token);
+            .set('Authorization', 'bearer '+res.body.access_token)
+            .then((res) => {
+                console.log(res);
+            });
         });
         // console.log("token");
         // console.log(token);
 
         // console.log(token.then((res) => {return res}));
-        return token;
+        // return token;
     },
     logout() {
         var tok = this.token();
