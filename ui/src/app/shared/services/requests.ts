@@ -64,9 +64,7 @@ export default {
         console.log("token");
         console.log(token);
 
-        token.resolve().then((data) => {
-            console.log(data);
-        })
+        console.log(token.getOwnPropertyNames());
         return token;
     },
     logout() {
