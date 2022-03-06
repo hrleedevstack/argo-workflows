@@ -55,7 +55,7 @@ export default {
         //     client_secret: "gE9avSRpz3GZsSWqxPcUWxI6wqBNPyaT"
         // });
         .then((res) =>{
-            return res.json();
+            return res.body.json();
         });
         return token;
     },
