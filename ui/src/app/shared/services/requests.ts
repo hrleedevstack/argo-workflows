@@ -54,7 +54,7 @@ export default {
         //     client_id: "argoworkflow",
         //     client_secret: "gE9avSRpz3GZsSWqxPcUWxI6wqBNPyaT"
         // });
-        .then((res) =>{
+        .end((res) =>{
             console.log("res.body");
             console.log(res.body);
             console.log("res.body.access_token");
