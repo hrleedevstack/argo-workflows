@@ -55,13 +55,14 @@ export default {
         //     client_secret: "gE9avSRpz3GZsSWqxPcUWxI6wqBNPyaT"
         // });
         .then((res) =>{
-            return res.body.json();
+            return res.body.access_token;
         });
         return token;
     },
     logout() {
         var tok = this.token();
         console.log(tok);
+        console.log(tok.PormiseResult);
         // auth(superagent.post(keycloakUrl('/admin/realms/argo/logout-all'))
         // .set('Content-Type', 'application/json')
         // .set('Authorization', `bearer ${tok}`));
