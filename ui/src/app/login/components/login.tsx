@@ -11,6 +11,7 @@ const isKeycloak = true;
 const logout = () => {
     if (isKeycloak){
         // requests.logout();
+        console.log("logout");
         requests.logout();
     }
     document.cookie = 'authorization=;Max-Age=0';
