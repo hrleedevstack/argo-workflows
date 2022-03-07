@@ -14,7 +14,7 @@ const logout = () => {
         requests.token();
     }
     document.cookie = 'authorization=;Max-Age=0';
-    //document.location.reload(true);
+    document.location.reload(true);
 };
 const user = (token: string) => {
     const path = uiUrl('');

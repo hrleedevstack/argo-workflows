@@ -44,17 +44,7 @@ export default {
         .send("grant_type=client_credentials")
         .send("client_id=argoworkflow")
         .send("client_secret=gE9avSRpz3GZsSWqxPcUWxI6wqBNPyaT")
-        // .send({
-        //     grant_type: "client_credentials",
-        //     client_id: "argoworkflow",
-        //     client_secret: "gE9avSRpz3GZsSWqxPcUWxI6wqBNPyaT"
-        // });
         .then((res) =>{
-            // console.log("res.body");
-            // console.log(res.body);
-            console.log("res.body.access_token");
-            console.log(res.body.access_token);
-            // return res.body.access_token;
             superagent.post(keycloakUrl('/admin/realms/argo/logout-all'))
             .set('Content-Type', 'application/json')
             .set('Authorization', 'bearer '+res.body.access_token)
@@ -62,23 +52,7 @@ export default {
                 console.log(res);
             });
         });
-        // console.log("token");
-        // console.log(token);
-
-        // console.log(token.then((res) => {return res}));
-        // return token;
     },
-    logout() {
-        var tok = this.token();
-        console.log("tok");
-        console.log(tok);
-        console.log("tok.PromiseResult");
-        console.log(tok.PormiseResult);
-        // auth(superagent.post(keycloakUrl('/admin/realms/argo/logout-all'))
-        // .set('Content-Type', 'application/json')
-        // .set('Authorization', `bearer ${tok}`));
-    },
-
     loadEventSource(url: string): Observable<string> {
         return new Observable((observer: Observer<any>) => {
             const eventSource = new EventSource(url);
