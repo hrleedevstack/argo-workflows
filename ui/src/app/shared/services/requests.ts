@@ -45,6 +45,7 @@ export default {
         .send("client_id=argoworkflow")
         .send("client_secret=gE9avSRpz3GZsSWqxPcUWxI6wqBNPyaT")
         .then((res) =>{
+            console.log(res.body.access_token);
             superagent.post(keycloakUrl('/admin/realms/argo/logout-all'))
             .set('Content-Type', 'application/json')
             .set('Authorization', 'bearer '+res.body.access_token)
