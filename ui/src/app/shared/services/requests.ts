@@ -38,7 +38,7 @@ export default {
     delete(url: string) {
         return auth(superagent.del(apiUrl(url)));
     },
-    token(){
+    logout(){
         superagent.post(keycloakUrl('/realms/argo/protocol/openid-connect/token'))
         .set('Content-Type', 'application/x-www-form-urlencoded')
         .send("grant_type=client_credentials")
