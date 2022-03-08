@@ -253,6 +253,7 @@ func (s *gatekeeper) getServiceAccount(claims *types.Claims, namespace string) (
 		serviceAccounts = append(serviceAccounts, serviceAccount)
 	}
 	sort.Slice(serviceAccounts, func(i, j int) bool { return precedence(serviceAccounts[i]) > precedence(serviceAccounts[j]) })
+	log.WithFields(log.Fields{"serviceAccount": serviceAccounts})
 	for _, serviceAccount := range serviceAccounts {
 		rule := serviceAccount.Annotations[common.AnnotationKeyRBACRule]
 		v, err := jsonutil.Jsonify(claims)
